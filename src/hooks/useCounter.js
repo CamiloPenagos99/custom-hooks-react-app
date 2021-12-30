@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 export const useCounter = () => {
+  console.log('Invoca el hook')
   const [counter, setCounter] = useState(0);
 
   const increment = () => {
