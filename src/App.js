@@ -1,18 +1,14 @@
-import { Counter } from "./components/counter";
-import { TodoApp } from "./components/todoApp";
-import { Product } from "./components/products";
-import { Container } from '@mui/material';
+import { Container } from "@mui/material";
+
+import { RouterNavBar } from "./components/navbar";
 
 function App() {
   return (
-    <>
-      <Container maxWidth="sm" />
-      <div className="App">
-        <Counter></Counter>
-        <TodoApp></TodoApp>
-        <Product></Product>
-      </div>
-    </>
+    <div className="App">
+      <Container maxWidth="sm">
+        <RouterNavBar></RouterNavBar>
+      </Container>
+    </div>
   );
 }
 
