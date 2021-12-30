@@ -1,33 +1,43 @@
 import { Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useFetchData } from "../hooks/useFetchData";
 import CardBox from "../material/card.ui";
+import { LinearProgress } from "@mui/material";
 
 export const Product = () => {
-  const [product, setProduct] = useState(null);
-
-  const getData = async () => {
-    const response = await fetch("https://fakestoreapi.com/products/20");
-    const item = await response.json();
-    setProduct(item);
-  };
-  useEffect(() => {
-    getData();
-  }, []);
-
-  if(!product) return (<div>Loading...</div>)
-  return (
-    <>
-      <Typography variant="h5" component="h2">
-        <h2>Producto</h2>
-      </Typography>
-      <hr />
-      <CardBox
-        title={product.title}
-        image={product.image}
-        description={product.description}
-        price={product.price}
-      ></CardBox>
-     
-    </>
+  const [data, loading, error] = useFetchData(
+    "https://fakestoreapi.com/products/6"
   );
+
+  if (loading || !data) {
+    return (
+      <div>
+        <LinearProgress />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div>
+        <h2 style={{ color: "red" }}>Error...{error}</h2>
+      </div>
+    );
+  }
+
+  if (data) {
+    return (
+      <>
+        <Typography variant="h5" component="h2">
+          <h2>Producto</h2>
+        </Typography>
+        <hr />
+        <CardBox
+          title={data.title}
+          image={data.image}
+          description={data.description}
+          price={data.price}
+        ></CardBox>
+      </>
+    );
+  }
 };
