@@ -5,6 +5,7 @@ import { Product } from "./products";
 import { AppBar, IconButton, Toolbar, Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
+import "../App";
 
 const useStyles = makeStyles({
   button: {
@@ -26,31 +27,36 @@ export const RouterNavBar = () => {
                 <IconButton edge="start" color="inherit" arial-label="menu" />
 
                 <Button>
-                  <Link
+                  <NavLink
                     style={{ color: "white", textDecoration: "none" }}
                     to="/"
+                    activeClassName="selected"
+                    exact
                   >
                     Todo App
-                  </Link>
+                  </NavLink>
                 </Button>
 
                 <Button>
                   <NavLink
                     style={{ color: "white", textDecoration: "none" }}
                     to="/contador"
-                    activeClassName={classes.button}
+                    activeClassName="selected"
+                    exact
                   >
                     Contador
                   </NavLink>
                 </Button>
 
                 <Button>
-                  <Link
+                  <NavLink
                     style={{ color: "white", textDecoration: "none" }}
                     to="/productos"
+                    activeClassName="selected"
+                    exact
                   >
                     Productos
-                  </Link>
+                  </NavLink>
                 </Button>
               </Toolbar>
             </AppBar>
