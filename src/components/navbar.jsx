@@ -6,6 +6,7 @@ import { AppBar, IconButton, Toolbar, Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 import "../App";
+import { Users } from "./users";
 
 const useStyles = makeStyles({
   button: {
@@ -58,6 +59,16 @@ export const RouterNavBar = () => {
                     Productos
                   </NavLink>
                 </Button>
+                <Button>
+                  <NavLink
+                    style={{ color: "white", textDecoration: "none" }}
+                    to="/usuarios"
+                    activeClassName="active"
+                    exact
+                  >
+                    Usuarios
+                  </NavLink>
+                </Button>
               </Toolbar>
             </AppBar>
           </nav>
@@ -68,6 +79,7 @@ export const RouterNavBar = () => {
         <Routes>
           <Route path="/contador" element={<Counter />}></Route>
           <Route path="/productos" element={<Product />}></Route>
+          <Route path="/usuarios" element={<Users />}></Route>
           <Route path="/" element={<TodoApp />}></Route>
         </Routes>
       </div>
