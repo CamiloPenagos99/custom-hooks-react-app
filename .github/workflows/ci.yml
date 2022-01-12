@@ -13,3 +13,7 @@ jobs:
       - name: Echo del mensaje
         run: | 
           echo "hello react"
+      - name: Echo fecha
+        run: date
+      - run: ls -l
+          
