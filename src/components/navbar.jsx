@@ -30,7 +30,7 @@ export const RouterNavBar = () => {
                   <NavLink
                     style={{ color: "white", textDecoration: "none" }}
                     to="/"
-                    activeClassName="selected"
+                    activeClassName="active"
                     exact
                   >
                     Todo App
@@ -41,7 +41,7 @@ export const RouterNavBar = () => {
                   <NavLink
                     style={{ color: "white", textDecoration: "none" }}
                     to="/contador"
-                    activeClassName="selected"
+                    activeClassName="active"
                     exact
                   >
                     Contador
@@ -52,7 +52,7 @@ export const RouterNavBar = () => {
                   <NavLink
                     style={{ color: "white", textDecoration: "none" }}
                     to="/productos"
-                    activeClassName="selected"
+                    activeClassName="active"
                     exact
                   >
                     Productos
