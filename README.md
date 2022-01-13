@@ -7,7 +7,8 @@ Proyecto de React, para entrenamiento y fines educativos
 
 1. React
 2. Custom Hooks
-3. Material UI
-4. GitHub Actions
-5. Zustand
-6. Testing-library/react
+3. React Router
+4. Material UI
+5. GitHub Actions
+6. Zustand
+7. Testing-library/react
