@@ -19,6 +19,8 @@ jobs:
           node-version: '14'
       - name: install dependencies
         run: npm install --no-audit --no-fund
+      - name: Check linter
+        run: npm run lint
       - run: ls -l
       - name: Build
         run: npm run build
