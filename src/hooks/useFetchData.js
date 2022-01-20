@@ -4,10 +4,11 @@ export const useFetchData = (url) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  console.log("custom hook", data, loading, error);
   const getData = async () => {
     try {
       setLoading(true);
+      console.log("Despues del loading hook");
       const response = await fetch(url);
       const item = await response.json();
       setData(item);
@@ -22,6 +23,7 @@ export const useFetchData = (url) => {
   };
 
   useEffect(() => {
+    console.log("Efecto del custom hook");
     getData();
   }, []);
 

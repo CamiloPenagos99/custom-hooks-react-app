@@ -7,7 +7,7 @@ export const Product = () => {
   const [data, loading, error] = useFetchData(
     "https://fakestoreapi.com/products/6"
   );
-
+console.log('Renderizando Product')
   if (loading || !data) {
     return (
       <div>

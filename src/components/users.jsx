@@ -8,10 +8,6 @@ export const Users = () => {
   console.log("Render del componente usuarios");
   const store = useStore();
 
-  const renderList = store.users.map((user) => {
-    return <li>{user.name}</li>;
-  });
-
   return (
     <>
       <Typography variant="h5" component="h2">
@@ -22,7 +18,7 @@ export const Users = () => {
           <li key={user.id}>
             <Typography variant="h5" component="h2" align="left">
               <span style={{ fontWeight: "bold" }}> {user.name}</span>
-              <span> -  {user.section}</span>
+              <span> - {user.section}</span>
             </Typography>
           </li>
         ))}
