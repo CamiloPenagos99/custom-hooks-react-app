@@ -24,11 +24,18 @@ describe("Prueba inicial tdd", () => {
     expect(h2).toHaveTextContent(texto);
   });
 
-  test("increase count", () => {
+  test("get increase button", () => {
     const component = render(<Counter></Counter>);
     const buttonIncrease = component.container.querySelector("button");
     fireEvent.click(buttonIncrease);
     console.log(prettyDOM(buttonIncrease));
+  });
+
+  test("get decrease button", () => {
+    const component = render(<Counter></Counter>);
+    const buttonDecrease = component.getByTestId("decrease-element");
+    fireEvent.click(buttonDecrease);
+    console.log(prettyDOM(buttonDecrease));
   });
 
   test("display counter text", () => {
@@ -45,5 +52,27 @@ describe("Prueba inicial tdd", () => {
     const banner = component.container.querySelector("h4");
     console.log("contador banner: ", prettyDOM(banner));
     expect(banner).toHaveTextContent("1");
+  });
+
+  test("decrease counter", () => {
+    const component = render(<Counter></Counter>);
+    const buttonDecrease = component.getByTestId("decrease-element");
+    fireEvent.click(buttonDecrease);
+    console.log("boton decrementar", prettyDOM(buttonDecrease));
+    const banner = component.container.querySelector("h4");
+    console.log("contador banner: ", prettyDOM(banner));
+    expect(banner).toHaveTextContent("-1");
+  });
+
+  test("reseat counter", () => {
+    const component = render(<Counter></Counter>);
+    const buttonDecrease = component.getByTestId("decrease-element");
+    const buttonReset = component.getByTestId("reset-element");
+    const banner = component.container.querySelector("h4");
+    fireEvent.click(buttonDecrease);
+    fireEvent.click(buttonDecrease);
+    expect(banner).toHaveTextContent("-2");
+    fireEvent.click(buttonReset);
+    expect(banner).toHaveTextContent("0");
   });
 });

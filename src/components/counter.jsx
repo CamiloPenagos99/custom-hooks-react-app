@@ -17,11 +17,11 @@ export const Counter = () => {
       <Button variant="outlined" onClick={increment}>
         Aumentar:
       </Button>
-      <Button variant="outlined" onClick={decrement}>
+      <Button variant="outlined" onClick={decrement} data-testid="decrease-element">
         Disminuir:
       </Button>
       <br></br>
-      <Button variant="outlined" onClick={reset}>
+      <Button variant="outlined" onClick={reset} data-testid="reset-element">
         Resetear:
       </Button>
       <div>
