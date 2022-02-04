@@ -4,6 +4,9 @@ on:
  push:
    branches:
      - "master"
+ pull_request:
+   branches: 
+     - "master"    
 
 jobs:
   deploy: 
@@ -18,7 +21,7 @@ jobs:
         with:
           node-version: '14'
       - name: install dependencies
-        run: npm install --no-audit --no-fund
+        run: npm install  --no-audit --no-fund
       - name: Check linter
         run: npm run lint
       - run: ls -l
@@ -32,6 +35,7 @@ jobs:
     #      command: npm run test:e2e
     #      start:
       - name: Deploy App
+        if: ${{github.event_name=='push'}}
         uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_APP_KEY}}
