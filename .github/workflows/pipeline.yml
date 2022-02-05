@@ -17,7 +17,7 @@ jobs:
         with:
           access_token: ${{ github.token }}
 
-  linter:
+  dependencies:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,6 +27,25 @@ jobs:
       - name: node
         uses: actions/setup-node@v2
         with:
+          cache: "npm"
+          node-version: "14"
+      - name: install dependencies
+        run: npm install  --no-audit --no-fund
+      - name: output
+        run: echo "cache install npm"
+
+  linter:
+    needs: dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: node
+        uses: actions/setup-node@v2
+        with:
+          cache: "npm"
           node-version: "14"
       - name: install dependencies
         run: npm install  --no-audit --no-fund
@@ -35,6 +54,7 @@ jobs:
       - run: ls -l
 
   build:
+    needs: dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -44,6 +64,7 @@ jobs:
       - name: node
         uses: actions/setup-node@v2
         with:
+          cache: "npm"
           node-version: "14"
       - name: install dependencies
         run: npm install  --no-audit --no-fund
@@ -66,6 +87,7 @@ jobs:
       - name: node
         uses: actions/setup-node@v2
         with:
+          cache: "npm"
           node-version: "14"
       - name: install dependencies
         run: npm install  --no-audit --no-fund
@@ -88,6 +110,7 @@ jobs:
       - name: node
         uses: actions/setup-node@v2
         with:
+          cache: "npm"
           node-version: "14"
       - name: install dependencies
         run: npm install  --no-audit --no-fund
