@@ -50,7 +50,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: create build artifact
-        uses: actions/update-artifact@v2
+        uses: actions/upload-artifact@v2
         with:
           name: build-prod
           path: build
